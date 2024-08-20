@@ -1,0 +1,57 @@
+<script>
+    RED.nodes.registerType('conversation',{
+        category: 'miibo',
+        color: '#F1925E',
+        defaults: {
+            name: {value: ""},
+            uuid: {value:""}
+        },
+        credentials: {
+            miiboAPIKey: { type: "password", required: true },
+            miiboAgentId: { type: "password", required: true }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "comment.png",
+        align: "right",
+        paletteLabel: 'conversation', //パレット上の名前        
+        label: () => this.name||"miibo conversation" //フローエディタ上の名前
+    });
+</script>
+
+<script type="text/x-red" data-template-name="conversation">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-miiboAPIKey">
+            API KEY
+        </label>
+        <input type="password" id="node-input-miiboAPIKey" placeholder="API KEY">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-miiboAgentId">
+            Agent ID
+        </label>
+        <input type="password" id="node-input-miiboAgentId" placeholder="Agent ID">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-uuid">
+            UUID(Optional)
+        </label>
+        <input type="text" id="node-input-uuid" placeholder="UUID">
+    </div>
+
+    <ul>
+        <li>miiboの管理画面にて、「エージェントのAPIを利用する」からAPIキーとエージェントIDを取得して下さい。</li>
+        <li>UUIDは任意です。 生成してくれるサイトもあります => https://uuid.doratool.com </li>
+    </ul>
+</script>
+
+<script type="text/x-red" data-help-name="conversation">
+    <p><a href="https://miibo.dev/admin/externalServices/api">miiboでエージェントのAPIを利用する</a>からAPIキーとエージェントIDを取得して下さい。</p>
+</script>

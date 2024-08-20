@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-miibo-api",
+  "version": "0.0.1",
+  "description": "Node-REDでmiiboのAPIを使って会話ができます。",
+  "main": "line.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n0bisuke/node-red-contrib-miibo-api.git"
+  },
+  "scripts": {
+    "deploy": "git add -A && git commit -m 'update' && git push origin main",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "nodes": {
+      "conversation": "./nodes/conversation/conversation.js"
+    }
+  },
+  "keywords": ["node-red"],
+  "author": "n0bisuke",
+  "license": "MIT",
+  "dependencies": {}
+}
