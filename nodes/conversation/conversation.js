@@ -14,7 +14,7 @@ module.exports = (RED) => {
          */
         node.on('input', async (msg, send, done) => {
             try {
-                console.log(typeof msg.payload, msg.payload, config);
+                // console.log(typeof msg.payload, msg.payload, config);
 
                 const MIIBO_API_KEY = node.credentials.miiboAPIKey;
                 const MIIBO_AGENT_ID = node.credentials.miiboAgentId;
@@ -34,7 +34,7 @@ module.exports = (RED) => {
                     postData.uid = msg.payload.uid || postData.uid;
                 }
 
-                console.log('postData:', postData);
+                // console.log('postData:', postData);
                 const REQUEST_OPTIONS = {
                     method: 'POST',
                     headers: {
@@ -45,7 +45,7 @@ module.exports = (RED) => {
 
                 const response = await fetch(REQUEST_URL, REQUEST_OPTIONS);
                 msg.payload = await response.json();
-                console.log(msg.payload);
+                // console.log(msg.payload);
                 send(msg);
                 done();
             } catch (error) {
